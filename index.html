@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arkanoid sample</title>
+	<script src="graficas.js"></script>
+	<script>
+		var ctx=null;
+		var cellW=30;
+		var cellH=20;
+		
+		var dibujarFondo = function dibujarFondo(){
+			ctx.fillStyle='#DDD';
+			for (var i=0; i<13; i++){
+				for (var j=0; j<23; j++){
+					drawRect(10+i*cellW, 10+j*cellH, cellW, cellH);
+				}
+			}
+		}
+        //init
+        window.onload = function(){
+            var canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext("2d");
+            ctx.font = "10pt Calibri";
+            iniciarGraficas(ctx);
+            
+
+            //canvas.addEventListener('keydown', keyDown, false);
+            //window.addEventListener('keydown',keyDown,true);
+            setInterval(dibujarFondo, 1000/60);
+
+        };
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas" width="400px" height="500px" style="margin:0px 200px;">
+    </canvas>
+</body>
+</html>
